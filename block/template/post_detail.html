@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block content %}
+        <div class="text-center">
+                <div class="p-5">
+                        <h1><td>{{posts.nombre}}</td></h1>
+
+                        <div class="my-2">
+                                <img src="{{posts.imagen.url}}" alt="{{posts.nombre}}" class="img-fluid">
+                        </div>
+                        <div class="my-5">
+                                <p>{{posts.descripcion|safe}}</p> 
+                                <a href="{{posts.link}}" class="btn btn-dark btn-ls card-project-b">adjunto</a>
+                        </div>
+                        
+                </div>
+               
+        
+        </div>
+{% endblock %}        
+       

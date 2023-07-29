@@ -1,0 +1,40 @@
+{% extends "template.html" %}
+{% block title %}
+    Jasz.py
+{% endblock %}
+
+{% load static %}
+
+
+
+{% block content %}
+<header class="row" bg.black>
+    <div class="col-md-4"><img src="{% static 'portafolio/profile.jpg' %}" alt="Mi perfil" class="img-fluid"></div>
+
+    <div class="col-md-8 my-auto">
+        <h1>i am <strong>Jasz.py</strong> </h1>
+        <h3>analista de datos/cientifico de datos/desarrollador web</h3>
+        <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, amet. Sequi nobis dignissimos cum expedita atque veritatis. Nemo obcaecati odio repudiandae maiores, saepe ipsam eaque eos minus quisquam a voluptas, dicta, corrupti aut. Pariatur eaque eius earum eos veniam enim corporis, laudantium numquam assumenda! Ad blanditiis dolor esse aliquam ea mollitia corporis nesciunt. Qui nulla ipsum, totam temporibus illo blanditiis sit fugit nihil amet accusamus pariatur? Temporibus quis iste culpa molestias illum quas inventore, quam repellat aperiam voluptatibus, delectus rem ad recusandae reprehenderit nulla quibusdam reiciendis fuga quaerat animi iusto, sit eos saepe sapiente. Incidunt distinctio laboriosam voluptates dolores adipisci.</p>
+        <a class="btn btn-outline-success btn-ls rounded-0 my-3" href="{%static 'portafolio/cv.docx' %}" target="_blank" type="submit">Donwloader CV </a>
+    </div>
+
+</header>
+<div class="row my-5 text-center">
+    <h3>mis proyectos</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium corrupti non laboriosam unde id, nemo eligendi voluptatem expedita vero molestias sapiente incidunt, illo dignissimos autem quisquam quam similique magnam laborum veniam cumque consequuntur nisi beatae repellat? Velit veniam perferendis placeat ut inventore, dolor optio nemo ratione id sit minima saepe consectetur quae voluptates nam quas vitae soluta. Veniam suscipit unde excepturi cumque placeat hic consectetur magnam officia nemo ea illum, omnis ipsam officiis necessitatibus nostrum? Sit dicta ea nihil, adipisci maxime eius inventore nulla quod corrupti rerum, dignissimos dolore! Omnis porro harum voluptate, possimus quis repellendus repudiandae? Molestias laboriosam illum saepe suscipit sunt voluptas doloribus delectus ipsa. Soluta mollitia esse ab, quos repudiandae corporis. Illo sint suscipit architecto fugiat consequuntur. Itaque ut saepe, perspiciatis velit maxime consequatur delectus ipsum. Expedita nulla qui atque voluptates veniam amet beatae nobis repellat ad eum magni iusto eaque aliquam enim explicabo, quam dolores natus.</p>
+    {% for project in projects %}
+            <div class="col-md-4 p-4">
+                <div class="card bg-black card-project">
+                    <div><img src="{{ project.imagen.url }}" alt="{{ project.nombre }}" class="card-img-top"></div>
+                    <div class="card-body p-4">
+                        <h1>{{ project.nombre }}</h1>
+                        <p>{{ project.descripcion|truncatechars:100 }}</p>
+                        <a href="{% url 'proyecto:porta2' project.id %}" class="btn btn-light rounded-0 btn-sm" target="_blank"> Ver mas</a></td>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+</div>
+        
+{% endblock %}
+
